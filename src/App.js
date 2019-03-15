@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import logo from './logo.svg';
-import SideMenu from './Presentation/Shared/SideMenu';
-import Button from './Presentation/Shared/Button';
 import HandIcon from './Presentation/Icons/Hand';
 import HashtagIcon from './Presentation/Icons/Hashtag';
+import SideMenu from './Presentation/Shared/SideMenu';
+import Button from './Presentation/Shared/Button';
+import SystemAccess from './Presentation/Shared/SystemAccess';
+import PageMain from './Presentation/Shared/PageMain';
+
 import './App.css';
 
 
@@ -69,67 +72,6 @@ let sidebarItems = [
 //In App, it's not a reference, it's a declaration. So actually clicking it, will trigger the function
 
 
-class TopBar extends Component {
-  render () {
-    const classNameTest = this.props.className;
-    var componentClasses = classNames(
-      'component', `${classNameTest}`
-    );
-
-    return (
-      <div className = {componentClasses}>
-        <p>{this.props.title}</p>
-        <p>{this.props.username}</p>
-        
-      </div>
-    )
-  }
-}
-
-const TopBarStyled = styled(TopBar)`
-  background-color:#fff;
-  box-shadow: 0 2px 10px 0 rgba(0,0,0,0.2);
-  height: 64px;
-  justify-content:space-between;
-`
-
-class Project extends Component {
-  constructor () {
-    super ();
-  }
-
-  render () {
-    const classNameTest = this.props.className;
-    var componentClasses = classNames(
-      'component', `${classNameTest}`
-    );
-
-    return (
-      <div className = {componentClasses} >
-        <p>{this.props.projectName}</p>
-        <div class="buttons">
-          { this.props.cancelOption ? (<Button type = "tertiary" action = "Cancel"></Button>) : null }
-
-          { this.props.actionButton ? (
-            <Button type = "secondary" action = {this.props.actionButton}></Button>
-          ) : null }
-        </div>
-      </div>
-    )
-  }
-}
-
-const ProjectStyled = styled(Project)`
-  height:80px;
-  display:flex;
-  justify-content: space-between;
-
-  .buttons button {
-    margin-left:24px;
-  }
-`
-
-
 
 class App extends Component {
   constructor() {
@@ -145,8 +87,8 @@ class App extends Component {
           <SideMenu options={sidebarItems} activeIcon={this.state.active} onClick={(tag) => this.setState({active: tag})}/>
 
           <div className="main">
-            <TopBarStyled title="Admin" username="susannesolisman@bluebeam.com"/>
-            <ProjectStyled projectName= "Rio Del Hotel" actionButton = "Create Project" cancelOption = {true}/>
+            <SystemAccess title="Admin" username="susannesolisman@bluebeam.com"/>
+            <PageMain projectName= "Rio Del Hotel" actionButton = "Create Project" cancelOption = {true}/>
           </div>
         </div>
     )
