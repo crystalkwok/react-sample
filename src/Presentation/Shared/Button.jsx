@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 class Button extends Component {
     components = {
+        primary: PrimaryButtonStyles,
         secondary: SecondaryButtonStyles,
         tertiary: TertiaryButtonStyles
       }
@@ -38,6 +39,13 @@ const SecondaryButtonStyles = styled(ButtonStyles)`
 const TertiaryButtonStyles = styled(ButtonStyles)`
   border:none;
   color:#00579c;
+`
+
+const PrimaryButtonStyles = styled(ButtonStyles)`
+  border:none;
+  background-color:#00579c;
+  padding:0 24px;
+  border-radius:4px;
 `
 
 export default Button;

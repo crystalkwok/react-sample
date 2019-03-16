@@ -37,6 +37,7 @@ class PageMain extends Component {
       return (
         <MainStyled className = {componentClasses} >
           <p>{this.props.projectName}</p>
+          //button order will return in reverse
           {this.props.buttons ? (
              <div class="buttons">
                 {buttons.map(
