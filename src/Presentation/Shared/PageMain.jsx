@@ -9,9 +9,16 @@ height:80px;
 display:flex;
 justify-content: space-between;
 
-.buttons button {
-  margin-left:24px;
+.buttons {
+
+  display:flex;
+  flex-direction:row-reverse;
+
+  button {
+    margin-left:24px;
+  }
 }
+
 `;
 
 class PageMain extends Component {
@@ -24,17 +31,23 @@ class PageMain extends Component {
       var componentClasses = classNames(
         'component', `${classNameTest}`
       );
+
+      const {buttons} = this.props;
   
       return (
         <MainStyled className = {componentClasses} >
           <p>{this.props.projectName}</p>
-          <div class="buttons">
-            { this.props.cancelOption ? (<Button type = "tertiary" action = "Cancel"></Button>) : null }
-  
-            { this.props.actionButton ? (
-              <Button type = "secondary" action = {this.props.actionButton}></Button>
-            ) : null }
-          </div>
+          {this.props.buttons ? (
+             <div class="buttons">
+                {buttons.map(
+                  (button, i) => <Button
+                                  key={i}                  
+                                  type={button.type} 
+                                  action={button.action}
+                                  />
+                )}
+             </div>
+          ): null }
         </MainStyled>
       )
     }

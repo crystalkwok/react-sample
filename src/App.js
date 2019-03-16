@@ -21,6 +21,11 @@ let sidebarItems = [
   {"svg": HashtagIconCopy, tag: 'hashtag'}
 ]
 
+let mainPageButtons = [
+  {"type": 'secondary', "action": 'Right'},
+  {"type": 'tertiary', "action": 'Left'}
+]
+
 
 
 //It probably would've, the only issue would be now each icon is managing its own state... which can become a headache
@@ -88,7 +93,7 @@ class App extends Component {
 
           <div className="main">
             <SystemAccess title="Admin" username="susannesolisman@bluebeam.com"/>
-            <PageMain projectName= "Rio Del Hotel" actionButton = "Create Project" cancelOption = {true}/>
+            <PageMain projectName= "Rio Del Hotel" buttons = {mainPageButtons} />
           </div>
         </div>
     )
