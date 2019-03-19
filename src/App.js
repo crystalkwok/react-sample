@@ -1,29 +1,34 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import logo from './logo.svg';
+
 import HandIcon from './Presentation/Icons/Hand';
 import HashtagIcon from './Presentation/Icons/Hashtag';
+
 import SideMenu from './Presentation/Shared/SideMenu';
-import Button from './Presentation/Shared/Button';
 import SystemAccess from './Presentation/Shared/SystemAccess';
 import PageMain from './Presentation/Shared/PageMain';
+import WideTabs from './Presentation/Shared/WideTabs';
 
 import './App.css';
 
 
 var classNames = require('classnames');
 
-const HandIconCopy = () => <HandIcon />
-const HashtagIconCopy = () => <HashtagIcon />
-
 let sidebarItems = [
-  {"svg": HandIconCopy, tag: 'hand'},
-  {"svg": HashtagIconCopy, tag: 'hashtag'}
+  {"svg": HandIcon, tag: 'hand'},
+  {"svg": HashtagIcon, tag: 'hashtag'}
 ]
 
 let mainPageButtons = [
-  {"type": 'secondary', "action": 'Right'},
+  {"type": 'secondary', "action": 'Right', "svg": HandIcon},
   {"type": 'tertiary', "action": 'Left'}
+]
+
+let pageTabOptions = [
+  {"option": 'Published'},
+  {"option": 'For Review'},
+  {"option": 'Log'}
 ]
 
 
@@ -94,6 +99,7 @@ class App extends Component {
           <div className="main">
             <SystemAccess title="Admin" username="susannesolisman@bluebeam.com"/>
             <PageMain projectName= "Rio Del Hotel" buttons = {mainPageButtons} />
+            <WideTabs tabs = {pageTabOptions}/>
           </div>
         </div>
     )
