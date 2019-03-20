@@ -13,20 +13,36 @@ justify-content:center;
 
 p {
     letter-spacing:1px;
+    height:64px;
     text-transform:uppercase;
     font-weight:400;
     font-size:14px;
-    margin:0 40px;
+    padding:0 40px;
+    display:flex;
+    align-items:center;
+    margin:0;
+
+    &.active {
+        height:56px;
+        color:#00579c;
+        font-weight:400;
+        border-bottom: 4px solid #00579c;
+        margin-top:4px;
+    }
 }
 `;
 
 class WideTabs extends Component {
     render () {
-        const {tabs} = this.props;
+        const {tabs, activeTab} = this.props;
         return (
             <WideTabsStyled>
                 {tabs.map (
-                    (tab,i) => <p key={i}>{tab.option}</p>
+                    (tab,i) => <p key={i}
+                                className = {(tab.key == activeTab) ? 'active' : null}  
+                                onClick={() => this.props.onClick(tab.key)}
+                                >{tab.option}
+                                </p>
                 )}
             </WideTabsStyled>
         )
